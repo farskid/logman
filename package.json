@@ -1,0 +1,56 @@
+{
+  "name": "logman",
+  "version": "1.0.0",
+  "description": "Simple nano logger service for javascript applications.",
+  "source": "src/index.js",
+  "module": "dist/logman.es.js",
+  "main": "dist/logman.js",
+  "umd:main": "dist/logman.umd.js",
+  "scripts": {
+    "start": "microbundle watch",
+    "build": "npm-run-all --silent -p build:main",
+    "build:main": "microbundle",
+    "test:watch": "jest --watchAll",
+    "test": "jest",
+    "release":
+      "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-airbnb-base",
+    "rules": {
+      "prefer-rest-params": 0
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
+    ]
+  },
+  "files": ["src", "dist"],
+  "keywords": ["logger", "logman", "javascript"],
+  "repository": "farskid/logman",
+  "author": "Farzad YZ <farskid@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "bundlesize": "^0.15.3",
+    "documentation": "^4.0.0",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^1.0.0",
+    "jest": "^21.2.1",
+    "npm-run-all": "^4.1.2",
+    "strip-json-comments-cli": "^1.0.1"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.8.0",
+    "microbundle": "^0.2.3"
+  }
+}
