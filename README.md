@@ -4,9 +4,9 @@ Simple nano logger service for javascript applications. Logman leverages usage o
 
 > Note: Logman isn't a crash reporter and it will shut up on production by checking NODE_ENV environment variable. Make sure to set NODE_ENV=production when building your Javscript application.
 
-## Install and Usage
+## Install
 
-`npm install logman`
+`npm install @farskid/logman`
 
 ### ES module
 

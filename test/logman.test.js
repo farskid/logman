@@ -23,6 +23,8 @@ describe("Logman", () => {
     expect(typeof suite.logger.sleep).toBe("function");
     expect(suite.logger.awake).not.toBe(undefined);
     expect(typeof suite.logger.awake).toBe("function");
+    expect(suite.logger.destroy).not.toBe(undefined);
+    expect(typeof suite.logger.destroy).toBe("function");
   });
   it("should have type prop, passed to the instance", () => {
     expect(suite.logger.type).toBe("test-logger");
@@ -37,5 +39,10 @@ describe("Logman", () => {
   it("should awaken the logger again by calling logger.awake()", () => {
     suite.logger.awake();
     expect(suite.logger.isSleep).toBe(false);
+  });
+  it("should change isDestroyed status after calling destroy", () => {
+    expect(suite.logger.isDestroyed).toBe(false);
+    suite.logger.destroy();
+    expect(suite.logger.isDestroyed).toBe(true);
   });
 });
