@@ -9,6 +9,8 @@ class Logman {
     this.type = type;
     // Indicates sleep mode of logger
     this.isSleep = false;
+    // Soft destroy
+    this.isDestroyed = false;
   }
 
   _act(action, messages) {
@@ -18,12 +20,22 @@ class Logman {
     );
   }
 
+  _isActive() {
+    return (
+      process &&
+      process.env &&
+      process.env.NODE_ENV !== "production" &&
+      !this.isSleep &&
+      !this.isDestroyed
+    );
+  }
+
   log() {
-    !this.isSleep && this._act.bind(this, "log")(arguments);
+    this._isActive() && this._act.bind(this, "log")(arguments);
   }
 
   error(...messages) {
-    !this.isSleep && this._act.bind(this, "error")(arguments);
+    !this._isActive() && this._act.bind(this, "error")(arguments);
   }
 
   sleep() {
@@ -32,6 +44,10 @@ class Logman {
 
   awake() {
     this.isSleep = false;
+  }
+
+  destroy() {
+    this.isDestroyed = true;
   }
 }
 

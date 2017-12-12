@@ -61,4 +61,27 @@ userLog.sleep();
 userLog.isSleep; // true
 userLog.awake();
 userLog.isSleep; // false
+
+/*
+  You can destroy a Logman instance too!
+  Obviously this is just a soft destory and a one way to make logger inactive forever. If you want the logger to be destroyed permenantly and be garbage collected (memory efficient), you can do one of these:
+
+  let logger = new Logman('temp-logger');
+  logger = null;
+
+  Or if you're using multiple loggers, you can store them in a single object:
+
+  const loggers = {
+    firstLogger: new Logman('first-logger'),
+    secondLogger: new Logman('second-logger')
+  };
+
+  delete loggers.firstLogger;
+  delete loggers.secondLogger;
+*/
+userLog.destroy();
 ```
+
+## License
+
+Logman is published under MIT license.
