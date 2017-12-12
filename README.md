@@ -82,6 +82,11 @@ userLog.isSleep; // false
 userLog.destroy();
 ```
 
+## Roadmap
+
+* Accept custom adapter (default to window.console)
+* Log timestamps
+
 ## License
 
 Logman is published under MIT license.
