@@ -21,13 +21,16 @@ class Logman {
   }
 
   _isActive() {
-    return (
-      process &&
-      process.env &&
-      process.env.NODE_ENV !== "production" &&
-      !this.isSleep &&
-      !this.isDestroyed
-    );
+    try {
+      return (
+        process &&
+        process.env &&
+        process.env.NODE_ENV !== "production" &&
+        !this.isSleep &&
+        !this.isDestroyed
+      );
+    }
+    catch(err) {return false;}
   }
 
   log() {
