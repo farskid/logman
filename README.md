@@ -85,6 +85,7 @@ userLog.destroy();
 ## Roadmap
 
 * Accept custom adapter (default to window.console)
+* Automatic logs on common events
 * Log timestamps
 
 ## License
