@@ -12,8 +12,7 @@
     "build:main": "microbundle",
     "test:watch": "jest --watchAll",
     "test": "jest",
-    "release":
-      "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push origin master && git push --tags && npm publish --access public"
+    "release": "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push origin master && git push --tags && npm publish --access public"
   },
   "eslintConfig": {
     "extends": "eslint-config-airbnb-base",
@@ -33,7 +32,10 @@
       ]
     ]
   },
-  "files": ["src", "dist"],
+  "files": [
+    "src",
+    "dist"
+  ],
   "keywords": [
     "logger",
     "logman",
