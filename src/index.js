@@ -37,7 +37,7 @@ class Logman {
     this._isActive() && this._act.bind(this, "log")(arguments);
   }
 
-  error(...messages) {
+  error() {
     !this._isActive() && this._act.bind(this, "error")(arguments);
   }
 
